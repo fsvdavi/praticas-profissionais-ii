@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmncvm5up1pq3"]
+[gd_scene load_steps=25 format=3 uid="uid://bmncvm5up1pq3"]
 
 [ext_resource type="Script" uid="uid://dd821pkkbbv3j" path="res://Script/inventory_ui.gd" id="1_g10m1"]
 [ext_resource type="Texture2D" uid="uid://dqpr3g5dtwe6x" path="res://Assets/Textures/SlotInventario720p.png" id="2_3fvtr"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://c2x8bey0shdsq" path="res://Assets/Textures/Inventariofundo.png" id="4_kpp3v"]
 [ext_resource type="Texture2D" uid="uid://c4omygo25c5xr" path="res://Assets/Textures/inventoryDescricaofundo.png" id="5_jmnjb"]
 [ext_resource type="Texture2D" uid="uid://bjag6ndnhy1jt" path="res://Assets/Textures/ItemSelecionadofundo.png" id="6_p7psp"]
+[ext_resource type="Script" uid="uid://b5hb7tq5k8ykg" path="res://Cenas/item_context_menu.gd" id="8_jmnjb"]
+[ext_resource type="Texture2D" uid="uid://bte7cd4kuugrg" path="res://Assets/Textures/UseButton.png" id="9_ifucr"]
+[ext_resource type="Texture2D" uid="uid://chtrrf5ufcnst" path="res://Assets/Textures/DropButton.png" id="10_qw2m1"]
+[ext_resource type="Texture2D" uid="uid://ccbvsqncrp18p" path="res://Assets/Textures/LeaveButton.png" id="11_knifn"]
 
 [sub_resource type="FontVariation" id="FontVariation_u6hln"]
 base_font = ExtResource("2_c3r11")
@@ -22,6 +26,81 @@ base_font = ExtResource("2_c3r11")
 [sub_resource type="LabelSettings" id="LabelSettings_knifn"]
 font = SubResource("FontVariation_qw2m1")
 font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7psp"]
+bg_color = Color(0.41928113, 0.30326337, 0.29538578, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6hln"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifucr"]
+bg_color = Color(0.6372855, 0.48654306, 0.47600275, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw2m1"]
+bg_color = Color(0.41960785, 0.3019608, 0.29411766, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knifn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76p6y"]
+bg_color = Color(0.6392157, 0.4862745, 0.4745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14u1i"]
+bg_color = Color(0.41960785, 0.3019608, 0.29411766, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhcjt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cs4pr"]
+bg_color = Color(0.6392157, 0.4862745, 0.4745098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="InventoryLayer" type="CanvasLayer"]
 
@@ -63,16 +142,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 296.0
-offset_top = 240.0
-offset_right = 367.0
-offset_bottom = 240.0
+offset_left = 304.0
+offset_top = 238.0
+offset_right = 375.0
+offset_bottom = 238.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 5
+scale = Vector2(1.1014621, 1.074631)
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
 
 [node name="Slot1" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -93,7 +175,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot2" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -114,7 +196,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot3" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -135,7 +217,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot4" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -156,7 +238,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot5" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -177,7 +259,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot6" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -198,7 +280,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot7" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -219,7 +301,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot8" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -240,7 +322,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot9" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -261,7 +343,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot10" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -282,7 +364,7 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot11" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
@@ -303,181 +385,13 @@ expand_mode = 5
 stretch_mode = 5
 
 [node name="Slot12" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(82, 82)
 layout_mode = 2
 texture_normal = ExtResource("2_3fvtr")
 stretch_mode = 0
 script = ExtResource("4_jmnjb")
 
 [node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot12"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot13" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot13"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot14" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot14"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot15" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot15"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot16" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot16"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot17" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot17"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot18" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot18"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot19" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot19"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 9.0
-offset_right = -12.0
-offset_bottom = -11.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 5
-stretch_mode = 5
-
-[node name="Slot20" type="TextureButton" parent="InventoryUI/InventoryPanel/SlotsGrid"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture_normal = ExtResource("2_3fvtr")
-stretch_mode = 0
-script = ExtResource("4_jmnjb")
-
-[node name="ItemIcon" type="TextureRect" parent="InventoryUI/InventoryPanel/SlotsGrid/Slot20"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -559,3 +473,47 @@ offset_right = 975.0
 offset_bottom = 262.0
 scale = Vector2(0.7298493, 0.81192803)
 texture = ExtResource("6_p7psp")
+
+[node name="ItemContextMenu" type="Control" parent="InventoryUI"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_jmnjb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryUI/ItemContextMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="UseButton" type="Button" parent="InventoryUI/ItemContextMenu/VBoxContainer"]
+custom_minimum_size = Vector2(120, 38)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_p7psp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u6hln")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ifucr")
+icon = ExtResource("9_ifucr")
+icon_alignment = 1
+
+[node name="DropButton" type="Button" parent="InventoryUI/ItemContextMenu/VBoxContainer"]
+custom_minimum_size = Vector2(120, 38)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qw2m1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_knifn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_76p6y")
+icon = ExtResource("10_qw2m1")
+icon_alignment = 1
+
+[node name="LeaveButton" type="Button" parent="InventoryUI/ItemContextMenu/VBoxContainer"]
+custom_minimum_size = Vector2(120, 38)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_14u1i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jhcjt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cs4pr")
+icon = ExtResource("11_knifn")
+icon_alignment = 1
+
+[connection signal="pressed" from="InventoryUI/ItemContextMenu/VBoxContainer/LeaveButton" to="InventoryUI/ItemContextMenu" method="_on_leave_button_pressed"]
